@@ -1,15 +1,15 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import {shallow} from 'enzyme'
 
 import App from '../App'
+import CommentBox from '../CommentBox'
 
 it('shows a comment box', () => {
-  const div = document.createElement('div')
-  
-  ReactDOM.render(<App />, div)
+  const wrapped = shallow(<App />)
 
-  // not a smart test.. how should App.js know what CommentBox will render?
-  expect(div.innerHTML).toContain('CommentBox')
+  // find returns an array of each instance that was found..
+  // there should be exactly one in this example
+  expect(wrapped.find(CommentBox).length).toEqual(1)
   
-  ReactDOM.unmountComponentAtNode(div)
 })
