@@ -9,7 +9,7 @@ const App = props => {
       <CommentList />
       <CommentBox />
     </div>
-  );
+  )
 }
 
 export default App
