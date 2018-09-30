@@ -1,6 +1,5 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
-import {shallow} from 'enzyme'
+import { shallow } from 'enzyme'
 
 import App from 'components/App'
 import CommentBox from 'components/CommentBox'
@@ -9,7 +8,6 @@ import CommentList from 'components/CommentList'
 let wrapped
 beforeEach(() => {
   wrapped = shallow(<App />)
-  
 })
 
 it('shows a comment box', () => {
