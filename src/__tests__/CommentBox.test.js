@@ -6,6 +6,7 @@ import CommentBox from 'components/CommentBox'
 let wrapped
 
 beforeEach(() => {
+  // we are going to use a full dom render only for learning purposes
   wrapped = mount(<CommentBox />)
 })
 
@@ -16,7 +17,17 @@ afterEach(() => {
 })
 
 it('should display a textarea and a button', () => {
-  // we are going to use a full dom render only for learning purposes
   expect(wrapped.find('textarea').length).toEqual(1)
   expect(wrapped.find('button').length).toEqual(1)
+})
+
+it('has a working textarea', () => {
+  // simulate an onChange event
+  // use the vanilla event type in the simulate function
+  wrapped
+    .find('textarea')
+    .simulate('change', { target: { value: 'new comment' } })
+  // rerender will happen async, force update
+  wrapped.update()
+  expect(wrapped.find('textarea').prop('value')).toBe('new comment')
 })
