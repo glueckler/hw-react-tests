@@ -4,13 +4,14 @@ import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 import reducers from 'reducers'
+import Root from 'Root'
 
 import App from 'components/App'
 
 const RenderApp = (
-  <Provider store={createStore(reducers, {})}>
+  <Root>
     <App />
-  </Provider>
+  </Root>
 )
 
 ReactDOM.render(RenderApp, document.querySelector('#root'))

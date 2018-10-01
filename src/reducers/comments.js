@@ -1,8 +1,8 @@
-import {saveComment} from 'actions/types'
+import { SAVE_COMMENT } from 'actions/types'
 
 export default (state = [], action) => {
   switch (action.type) {
-    case saveComment: 
+    case SAVE_COMMENT: 
       return [...state, action.payload]
     default:
       return state

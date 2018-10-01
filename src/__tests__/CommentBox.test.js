@@ -2,12 +2,17 @@ import React from 'react'
 import { mount } from 'enzyme'
 
 import CommentBox from 'components/CommentBox'
+import Root from 'Root'
 
 let wrapped
 
 beforeEach(() => {
   // we are going to use a full dom render only for learning purposes
-  wrapped = mount(<CommentBox />)
+  wrapped = mount(
+    <Root>
+      <CommentBox />
+    </Root>
+    )
 })
 
 // it's important to clean up the DOM when using mount
