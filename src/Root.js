@@ -10,7 +10,7 @@ import reducers from 'reducers'
 
 export default (props) => {
   return (
-    <Provider store={createStore(reducers, {})}>
+    <Provider store={createStore(reducers, {...props.initialState})}>
       {props.children}
     </Provider>
   )

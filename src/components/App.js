@@ -6,8 +6,8 @@ import CommentBox from 'components/CommentBox'
 const App = props => {
   return (
     <div>
-      <CommentList />
       <CommentBox />
+      <CommentList />
     </div>
   )
 }

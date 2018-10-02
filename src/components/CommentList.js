@@ -1,9 +1,22 @@
-import React from 'react'
+import React, { PureComponent } from 'react';
+import { connect } from 'react-redux'
 
-const CommentList = props => {
-  return (
-    <div>CommentList</div>
-  );
+class CommentList extends PureComponent {
+  renderComments() {
+    return this.props.comments.map((comment) => {
+      return <li key={comment}>{comment}</li>
+    })
+  }
+  
+  render() {
+    return <div>
+        <ul>{this.renderComments()}</ul>
+      </div>
+  }
 }
 
-export default CommentList
+const mapState = (state) => {
+  return { comments: state.comments }
+}
+
+export default connect(mapState)(CommentList)
