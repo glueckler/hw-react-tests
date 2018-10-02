@@ -1,4 +1,6 @@
 import React, { PureComponent } from 'react'
+import { connect } from 'react-redux'
+import * as actions from 'actions'
 
 class CommentBox extends PureComponent {
   state = { comment: '' }
@@ -10,7 +12,7 @@ class CommentBox extends PureComponent {
   handleSubmit = event => {
     event.preventDefault()
 
-    // then call redux eventually..
+    this.props.saveComment(this.state.comment)
 
     this.setState({ comment: '' })
   }
@@ -28,4 +30,4 @@ class CommentBox extends PureComponent {
   }
 }
 
-export default CommentBox
+export default connect(null, actions)(CommentBox)
